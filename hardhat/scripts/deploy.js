@@ -1,6 +1,7 @@
 const { ethers } = require("hardhat");
 require("dotenv").config({ path: ".env" });
 const { CRYPTO_DEVS_NFT_CONTRACT_ADDRESS } = require("../constants");
+require("@nomiclabs/hardhat-etherscan");
 
 async function main() {
   // Address of the Crypto Devs NFT contract that you deployed in the previous module
@@ -24,6 +25,20 @@ async function main() {
     "Crypto Devs Token Contract Address:",
     deployedCryptoDevsTokenContract.address
   );
+
+  console.log("Sleeping.....");
+  // Wait for etherscan to notice that the contract has been deployed
+  await sleep(100000);
+
+  // Verify the contract after deploying
+  await hre.run("verify:verify", {
+    address: deployedCryptoDevsTokenContract.address,
+    constructorArguments: [cryptoDevsNFTContract],
+  });
+}
+
+function sleep(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
 // Call the main function and catch if there is any error

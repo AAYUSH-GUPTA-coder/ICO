@@ -583,7 +583,8 @@ export const NFT_CONTRACT_ABI = [
 ];
 
 export const NFT_CONTRACT_ADDRESS =
-  "0x8Ee5D0A92E92Cc9c137A21f7498188F21D499c10";
+  "0x638Dd20c452E5b2cFe5119179c5E08643d68B9Ac";
+
 export const TOKEN_CONTRACT_ABI = [
   {
     inputs: [
@@ -1005,5 +1006,5 @@ export const TOKEN_CONTRACT_ABI = [
     type: "receive",
   },
 ];
-export const TOKEN_CONTRACT_ADDRESS =
-  "0x68907808181f011a69eA4915a0B5cfb3F7C03E47";
+
+export const TOKEN_CONTRACT_ADDRESS = "0x209d9e8561ab481025584e673cfb729011ae360d";
